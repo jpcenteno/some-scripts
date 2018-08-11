@@ -1,0 +1,10 @@
+#! /usr/bin/env bash
+
+# Outputs the worst offenders by disk usage.
+
+DIR="${1:-$HOME}"
+
+du -hc --max-depth=1 $DIR \
+    2> /dev/null \
+    | sort -h --reverse \
+    | head -n 11
